@@ -4,7 +4,7 @@ const livroControlador = require('./controladores./livros')
 
 const app = express()
 
-
+app.use(express.json())
 
 app.get('/', (req,res) => {
     response.send('Servidor rodando')
@@ -13,5 +13,7 @@ app.get('/', (req,res) => {
 app.get('/livros', livroControlador.pegarTodos)
 
 app.get('/livros/:id', livroControlador.pegarPeloId)
+
+app.post('/livros', livroControlador.criar)
 
 app.listen('3000')

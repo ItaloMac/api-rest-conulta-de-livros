@@ -15,6 +15,21 @@ const pegarPeloId = (req,res) => {
     return res,json(livro)
 }
 
+const criar = (req,res) => {
+    const livro = req.body
+
+    if(!livro.titulo || !livro.autor || !livro.ano || !livro.numPaginas) {
+        return res.status(400).json({
+            message: "Dados Invalidos"
+        })
+    }
+
+    const id = criarIdLivro()
+    const novoLivro = {id,...livro}
+    livros.push(novoLivro)
+    return res.status(201).json(novoLivro)
+}
+
 module.exports = {
     pegarTodos,
     pegarPeloId
@@ -22,5 +37,6 @@ module.exports = {
 
 module.exports = {
     pegarPeloId,
-    pegarTodos
+    pegarTodos,
+    criar
 }

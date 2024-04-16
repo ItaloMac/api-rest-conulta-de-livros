@@ -14,3 +14,9 @@ const livros = [
         numPaginas: 158,
     },
 ]
+
+const criarIdLivro = () => {
+    const ultimoLivro = livros[livros.length - 1]
+    const idUltimoLivro = ultimoLivro.id
+    return idUltimoLivro + 1
+}
