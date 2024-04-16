@@ -61,6 +61,39 @@ const substituir = (req,res) => {
     })
 }
 
+const alterar = (req,res) => {
+    const {id} = req.params
+    const livroExistente = livros.find((l) => l.id ===Number(id))
+
+    if(!livroExistente) {
+        return res.status(404).json({
+            mensagem: "Nao existe livro a ser substituido para o id informado"
+        })
+    }
+
+    const {titulo, ano, autor,numPaginas} = req.body
+    if (titulo) {
+        livroExistente.titulo = titulo
+    }
+
+    if (ano) {
+        livroExistente.ano = ano
+    }
+
+    if (autor) {
+        livroExistente.autor = autor
+    }
+
+    if (numPaginas) {
+        livroExistente.numPaginas = numPaginas
+    }
+
+    return res.json({
+        mensagem: "Livro alterado"
+    })
+
+}
+
 module.exports = {
     pegarTodos,
     pegarPeloId
@@ -70,5 +103,6 @@ module.exports = {
     pegarPeloId,
     pegarTodos,
     criar,
-    substituir
+    substituir,
+    alterar
 }

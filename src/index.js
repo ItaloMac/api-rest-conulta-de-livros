@@ -18,4 +18,7 @@ app.post('/livros', livroControlador.criar)
 
 app.put('/livros/:id,', livroControlador.substituir)
 
+app.patch('/livros/:id,', livroControlador.alterar)
+
+
 app.listen('3000')
