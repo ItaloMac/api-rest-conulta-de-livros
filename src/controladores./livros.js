@@ -69,5 +69,6 @@ module.exports = {
 module.exports = {
     pegarPeloId,
     pegarTodos,
-    criar
+    criar,
+    substituir
 }

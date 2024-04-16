@@ -16,4 +16,6 @@ app.get('/livros/:id', livroControlador.pegarPeloId)
 
 app.post('/livros', livroControlador.criar)
 
+app.put('/livros/:id,', livroControlador.substituir)
+
 app.listen('3000')
